@@ -1,0 +1,230 @@
+<app-nav-bar></app-nav-bar>
+
+
+<div class="main-container">
+
+  <h4>Basic Information</h4>
+  <hr>
+
+  <div class="card">
+    <form [formGroup]="basinInformationForm">
+
+      <div class="row">
+        <div class="col-sm-6">
+
+          <h5>Personal Details</h5>
+
+          <div class="ml-3 info">
+            <div class="row mt-5">
+              <div class="col-sm-6">
+                <span>First Name {{submitted}} {{basinInformationForm?.controls?.firstName?.errors?.required}}</span>
+                <span class="mandatory">*</span>
+                <input type="text" class="form-control" placeholder="Enter your first name" formControlName="firstName"
+                  [ngClass]="{
+                'is-invalid': submitted && basinInformationForm.controls.firstName.errors
+              }" required>
+                <div *ngIf="submitted && basinInformationForm.controls.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="basinInformationForm.controls.firstName.errors.required">
+                    <span>First Name is Required</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <span>Last Name</span> <span class="mandatory">*</span>
+                <input type="text" class="form-control" placeholder="Enter your last name" formControlName="lastName"
+                  [ngClass]="{
+                'is-invalid': submitted && basinInformationForm.controls.lastName.errors
+              }" required>
+                <div *ngIf="submitted && basinInformationForm.controls.lastName.errors" class="invalid-feedback">
+                  <div *ngIf="basinInformationForm.controls.lastName.errors.required">
+                    <span>Last Name is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-sm-6">
+                <span>Date of Birth</span> <span class="mandatory">*</span>
+                <input type="date" class="form-control" placeholder="Enter your date of birth" formControlName="dob"
+                  [ngClass]="{
+                'is-invalid': submitted && basinInformationForm.controls.dob.errors
+              }" required>
+                <div *ngIf="submitted && basinInformationForm.controls.dob.errors" class="invalid-feedback">
+                  <div *ngIf="basinInformationForm.controls.dob.errors.required">
+                    <span>Date of Birth is Required</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <span>Gender</span> <span class="mandatory">*</span> <br />
+
+                <input type="radio" id="male" value="male" formControlName="gender" [ngClass]="{
+                'is-invalid': submitted && basinInformationForm.controls.gender.errors
+              }" required>&nbsp;
+                <label for="male" style="font-size: 14px;">Male</label> &nbsp;&nbsp;
+                <input type="radio" id="female" value="female" formControlName="gender" [ngClass]="{
+                'is-invalid': submitted && basinInformationForm.controls.gender.errors
+              }" required>&nbsp;
+                <label for="female" style="font-size: 14px;">Female</label><br>
+                <div *ngIf="submitted && basinInformationForm.controls.gender.errors" class="invalid-feedback">
+                  <div *ngIf="basinInformationForm.controls.gender.errors.required">
+                    <span>Gender is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-sm-6">
+                <span>Email</span> <span class="mandatory">*</span>
+                <input type="email" class="form-control" placeholder="Enter your email ID" formControlName="email"
+                  [ngClass]="{
+                'is-invalid': submitted && basinInformationForm.controls.email.errors
+              }" required>
+              <div *ngIf="submitted && basinInformationForm.controls.email.errors" class="invalid-feedback">
+                <div *ngIf="basinInformationForm.controls.email.errors.required">
+                  <span>Email Id is Required</span>
+                </div>
+              </div>
+              </div>
+              <div class="col-sm-6">
+                <span>Phone Number </span> <span class="mandatory">*</span>
+                <input type="number" class="form-control" placeholder="0000000000" formControlName="phoneNumber"
+                  [ngClass]="{
+                'is-invalid': submitted && basinInformationForm.controls.phoneNumber.errors
+              }" required>
+                <div *ngIf="submitted && basinInformationForm.controls.phoneNumber.errors" class="invalid-feedback">
+                  <div *ngIf="basinInformationForm.controls.phoneNumber.errors.required">
+                    <span>Phone Number is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-sm-12">
+                <span>Address Line 1</span> <span class="mandatory">*</span>
+                <input type="text" class="form-control" placeholder="Flat number, building name, area"
+                  formControlName="address" [ngClass]="{
+                'is-invalid': submitted && basinInformationForm.controls.address.errors
+              }" required>
+                <div *ngIf="submitted && basinInformationForm.controls.address.errors" class="invalid-feedback">
+                  <div *ngIf="basinInformationForm.controls.address.errors.required">
+                    <span>Address Line is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-sm-12">
+                <span>City</span> <span class="mandatory">*</span>
+                <input type="text" class="form-control" placeholder="Enter your city name" formControlName="city"
+                  [ngClass]="{
+                'is-invalid': submitted && basinInformationForm.controls.city.errors
+              }" required>
+                <div *ngIf="submitted && basinInformationForm.controls.city.errors" class="invalid-feedback">
+                  <div *ngIf="basinInformationForm.controls.city.errors.required">
+                    <span>City is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-sm-6">
+                <span>State</span> <span class="mandatory">*</span>
+                <!-- <input type="text" class="form-control" placeholder="Enter your first name"> -->
+                <select class="form-control" formControlName="state" [ngClass]="{
+                'is-invalid': submitted && basinInformationForm.controls.state.errors
+              }" required>
+                  <option value="" selected>Please Select </option>
+                  <option *ngFor="let state of states" [value]="state">
+                    {{ state }}
+                  </option>
+                </select>
+                <div *ngIf="submitted && basinInformationForm.controls.state.errors" class="invalid-feedback">
+                  <div *ngIf="basinInformationForm.controls.state.errors.required">
+                    <span>State is Required</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <span>Zip Code</span> <span class="mandatory">*</span>
+                <input type="text" class="form-control" placeholder="000000" formControlName="zipCode" [ngClass]="{
+                'is-invalid': submitted && basinInformationForm.controls.zipCode.errors
+              }" required>
+                <div *ngIf="submitted && basinInformationForm.controls.zipCode.errors" class="invalid-feedback">
+                  <div *ngIf="basinInformationForm.controls.zipCode.errors.required">
+                    <span>Zip Code is Required</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-sm-6">
+
+          <h5>Work Experience</h5>
+
+          <div class="ml-3 mr-3 info">
+
+            <div class="edit_hover_class" formArrayName="workExperience">
+              <div class="mt-2" *ngFor="let experience of workExperienceArr.controls; let i = index"
+                [formGroupName]="i">
+                <a (click)="deleteWorkExperience(i)"><img style="width: 20px;" src="../../assets/trash.png" /></a>
+                <div class="row mt-5">
+                  <div class="col-sm-12">
+                    <span>Company Name</span> <span class="mandatory">*</span>
+                    <input type="text" class="form-control" placeholder="Enter your Company name"
+                      formControlName="companyName" [ngClass]="{
+                    'is-invalid': submitted && experience.get('companyName').errors
+                  }">
+                    <div *ngIf="submitted && experience.get('companyName').errors" class="invalid-feedback">
+                      <div *ngIf="experience.get('companyName').errors.required">
+                        Company Name is Required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-3">
+                  <div class="col-sm-6">
+                    <span>Role</span> <span class="mandatory">*</span>
+                    <input type="text" class="form-control" placeholder="Enter your role in your company"
+                      formControlName="role" [ngClass]="{
+                    'is-invalid': submitted && experience.get('role').errors
+                  }">
+                    <div *ngIf="submitted && experience.get('role').errors" class="invalid-feedback">
+                      <div *ngIf="experience.get('role').errors.required">
+                        Role is Required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <span>Experience in months</span>
+                    <input type="text" class="form-control" placeholder="000" formControlName="experience">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <a class="add-experience" (click)="addNewRow()"> + Add Another</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<div class="card save-card shadow p-3 mb-5 bg-white rounded">
+  <div class="col-sm-12 float-right">
+    <button class="btn save" (click)="onSubmit()">Next</button>
+  </div>
+</div>
