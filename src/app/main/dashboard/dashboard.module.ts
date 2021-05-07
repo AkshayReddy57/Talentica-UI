@@ -9,9 +9,7 @@ import {
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularFontAwesomeModule } from 'angular-font-awesome/dist/src/angular-font-awesome.module';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
-// import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   imports: [
@@ -23,7 +21,6 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule
-    // AngularFontAwesomeModule
   ],
   declarations: [DashboardComponent, NavBarComponent],
 })
